@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Le site est fermé pour le moment.</h1>
+      <p class="lead">Notre site est accessible du lundi au vendredi, de <%= status.startHour %>h à <%= status.endHour %>h. Revenez <%= status.nextOpening %>.</p>
+      <p class="muted">Code de réponse : 503, service temporairement indisponible.</p>
+    </div>
+    <%- include('partials/hours') %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

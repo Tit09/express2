@@ -1,0 +1,17 @@
+{
+  "name": "teranga-reseaux-checkpoint-express",
+  "version": "1.0.0",
+  "description": "Application web Express (3 pages) disponible uniquement pendant les heures de travail",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node test/workingHours.test.js"
+  },
+  "keywords": ["express", "ejs", "middleware", "gomycode"],
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}

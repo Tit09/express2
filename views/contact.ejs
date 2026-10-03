@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<section class="page-head">
+  <div class="wrap">
+    <h1>Nous contacter</h1>
+    <p class="lead">Écrivez-nous : nous répondons du lundi au vendredi, de <%= status.startHour %>h à <%= status.endHour %>h.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+
+    <div>
+      <% if (sent) { %>
+        <div class="notice notice-success" role="status">
+          <h2>Message envoyé</h2>
+          <p>Merci <%= nom %>, nous avons bien reçu votre message et nous vous répondons dans la journée ouvrée.</p>
+        </div>
+      <% } else { %>
+        <% if (errors.length > 0) { %>
+          <div class="notice notice-error" role="alert">
+            <h2>Le formulaire contient des erreurs</h2>
+            <ul>
+              <% errors.forEach(function (e) { %><li><%= e %></li><% }); %>
+            </ul>
+          </div>
+        <% } %>
+
+        <form class="form" action="/contact" method="post" novalidate>
+          <div class="field">
+            <label for="nom">Nom complet</label>
+            <input id="nom" name="nom" type="text" autocomplete="name" required value="<%= values.nom || '' %>">
+          </div>
+          <div class="field">
+            <label for="email">Adresse e-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required value="<%= values.email || '' %>">
+          </div>
+          <div class="field">
+            <label for="sujet">Sujet</label>
+            <input id="sujet" name="sujet" type="text" value="<%= values.sujet || '' %>">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required><%= values.message || '' %></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Envoyer le message</button>
+        </form>
+      <% } %>
+    </div>
+
+    <aside class="contact-side">
+      <h2>Nos coordonnées</h2>
+      <p>Immeuble Les Almadies, Route de Ngor<br>Dakar, Sénégal</p>
+      <p>+221 33 000 00 00<br>contact@teranga-reseaux.example</p>
+      <%- include('partials/hours') %>
+    </aside>
+
+  </div>
+</section>
+
+<%- include('partials/footer') %>

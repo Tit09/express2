@@ -1,0 +1,12 @@
+<section class="hours-panel" aria-labelledby="hours-title">
+  <h2 id="hours-title" class="hours-title">Horaires de la semaine</h2>
+  <ul class="hours-list">
+    <% status.schedule.forEach(function (d) { %>
+      <li class="hours-row<%= d.isToday ? ' is-today' : '' %><%= d.open ? '' : ' is-off' %>">
+        <span class="hours-day"><%= d.label %><% if (d.isToday) { %> <span class="hours-today">(aujourd'hui)</span><% } %></span>
+        <span class="hours-time"><%= d.hours %></span>
+      </li>
+    <% }); %>
+  </ul>
+  <p class="hours-state"><%= status.message %></p>
+</section>

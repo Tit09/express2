@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %> | Teranga Réseaux</title>
+  <meta name="description" content="Teranga Réseaux accompagne les entreprises de Dakar en réseaux, cybersécurité et DevOps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="/">Teranga Réseaux</a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link<%= currentPath === '/' ? ' is-active' : '' %>"<%- currentPath === '/' ? ' aria-current="page"' : '' %>>Accueil</a></li>
+          <li><a href="/services" class="nav-link<%= currentPath === '/services' ? ' is-active' : '' %>"<%- currentPath === '/services' ? ' aria-current="page"' : '' %>>Nos services</a></li>
+          <li><a href="/contact" class="nav-link<%= currentPath === '/contact' ? ' is-active' : '' %>"<%- currentPath === '/contact' ? ' aria-current="page"' : '' %>>Nous contacter</a></li>
+        </ul>
+      </nav>
+
+      <p class="status-pill <%= status.isOpen ? 'status-pill--open' : 'status-pill--closed' %>">
+        <span class="status-dot" aria-hidden="true"></span>
+        <%= status.message %>
+      </p>
+    </div>
+  </header>
+
+  <main id="contenu">
